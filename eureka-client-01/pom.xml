@@ -5,7 +5,7 @@
 
 
     <parent>
-        <artifactId>eureka-server</artifactId>
+        <artifactId>mycloud</artifactId>
         <groupId>com.example</groupId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
