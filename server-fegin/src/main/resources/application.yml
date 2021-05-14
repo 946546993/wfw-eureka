@@ -12,5 +12,6 @@ spring:
     name: service-feign
 
 feign:
-  hystrix:
+  # ÆôÓÃÈÛ¶ÏÆ÷
+  circuitbreaker:
     enabled: true
