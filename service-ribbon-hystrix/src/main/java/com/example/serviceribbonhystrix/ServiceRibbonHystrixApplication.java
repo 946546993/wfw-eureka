@@ -12,8 +12,8 @@ import org.springframework.web.client.RestTemplate;
  * @author hzx
  */
 @SpringBootApplication
-@EnableHystrix
 @EnableDiscoveryClient
+@EnableHystrix
 public class ServiceRibbonHystrixApplication {
 
     public static void main(String[] args) {

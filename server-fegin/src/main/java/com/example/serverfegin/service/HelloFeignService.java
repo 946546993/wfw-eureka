@@ -2,7 +2,9 @@ package com.example.serverfegin.service;
 
 import com.example.serverfegin.service.impl.HelloFeignServiceImpl;
 import org.springframework.cloud.openfeign.FeignClient;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.stereotype.Component;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 
@@ -11,10 +13,11 @@ import org.springframework.web.bind.annotation.RequestParam;
  * fallback:失败就返回此结果
  * @author hzx
  */
-@FeignClient(value = "eureka-client-01", fallback = HelloFeignServiceImpl.class)
+@Component
+@FeignClient(value = "eureka-client-01",fallback = HelloFeignServiceImpl.class)
 public interface HelloFeignService {
 
-    @GetMapping(value = "/demo/hi")
+    @RequestMapping(value = "/demo/hi",method = RequestMethod.GET)
     String sayHiFromClientOne(@RequestParam(value = "name") String name);
 
 }

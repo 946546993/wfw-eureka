@@ -2,16 +2,23 @@ package com.example.serverfegin;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
+import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
+import org.springframework.cloud.netflix.hystrix.EnableHystrix;
 import org.springframework.cloud.openfeign.EnableFeignClients;
 
 /**
  * @author hzx
  */
 @SpringBootApplication
-@EnableDiscoveryClient
+@EnableEurekaClient
+@EnableHystrix
 @EnableFeignClients
 public class ServerFeignApplication {
+
+    /**
+     * todo feign熔断有问题
+     */
+
 
     /**
      * 1.Feign是一个声明式的伪Http客户端，它使得写Http客户端变得更简单。

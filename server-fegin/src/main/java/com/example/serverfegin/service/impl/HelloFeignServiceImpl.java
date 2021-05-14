@@ -11,6 +11,7 @@ public class HelloFeignServiceImpl implements HelloFeignService {
 
     @Override
     public String sayHiFromClientOne(String name) {
-        return "hello"+name;
+        System.out.println("熔断方法");
+        return "sorry"+name;
     }
 }
