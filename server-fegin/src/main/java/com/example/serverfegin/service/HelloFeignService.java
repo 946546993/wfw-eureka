@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 
 /**
+ * 断路机制
  * fallback:失败就返回此结果
  * @author hzx
  */
