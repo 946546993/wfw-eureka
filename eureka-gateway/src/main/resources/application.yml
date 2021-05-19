@@ -1,1 +1,52 @@
+server:
+  port: 8771
 
+eureka:
+  client:
+    #向注册中心注册自己
+    register-with-eureka: true
+    #检索服务(从注册中心获取服务)
+    fetch-registry: true
+    #如果有多个注册中心,需要配置其他的路径,用逗号隔离
+    serviceUrl:
+      defaultZone: http://localhost:8761/demo/eureka/
+
+  instance:
+    hostname: localhost
+      #将IP注册到eureka中，如果为false默认注册主机名
+    prefer-ip-address: true
+
+    #心跳间隔,默认30s.心跳间隔和心跳超时时间都会保存在server端,server端会根据不同的心跳频率分别探活
+    lease-renewal-interval-in-seconds: 5
+    #心跳超时时间,默认90s,即从client端最后一次发出心跳后,达到这个时间没有再次发出心跳,表示服务不可用,从注册中心移除
+    lease-expiration-duration-in-seconds: 10
+
+
+
+spring:
+  application:
+    name: eureka-gateway
+
+  cloud:
+    #  gateway 会自动做负载均衡
+    gateway:
+      discovery:
+        locator:
+          #启动
+          enabled: true
+          lower-case-service-id: true
+
+      routes:
+        - id: apiFegin                        #自定义  路由的唯一标识
+          uri: lb://SERVICE-FEIGN           #最终路由的地址  lb代表从注册中心获取服务
+          predicates:                          #断言 匹配地址的条件
+            - Path=/api-fegin/**
+          filters:
+            - StripPrefix=1                #表示将Path的路径/api-fegin在转发前去掉，如果设置StripPrefix=2，表示将/api-fegin/*去掉 以此类推... 同时将spring.cloud.gateway.discovery.locator.enabled改为false，如果不改的话，之前的localhost:8799/client01/test01这样的请求地址也能正常访问，因为这时为每个服务创建了2个router
+
+        - id: serverClient
+          uri: lb://EUREKA-CLIENT-01
+          predicates:
+            - Path=/server-client/**
+          filters:
+            - StripPrefix=1
