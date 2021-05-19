@@ -38,7 +38,7 @@ spring:
 
       routes:
         - id: apiFegin                        #自定义  路由的唯一标识
-          uri: lb://SERVICE-FEIGN           #最终路由的地址  lb代表从注册中心获取服务
+          uri: lb://SERVICE-FEIGN           #最终路由的地址  lb代表从注册中心获取服务 ，因为注册的时候，全部以大写的形式进行注册，所以服务这里要写全大写
           predicates:                          #断言 匹配地址的条件
             - Path=/api-fegin/**
           filters:
