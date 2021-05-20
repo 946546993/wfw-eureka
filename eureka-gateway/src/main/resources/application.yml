@@ -32,9 +32,9 @@ spring:
     gateway:
       discovery:
         locator:
-          #启动
+          #启动服务名为匹配地址条件
           enabled: true
-          lower-case-service-id: true
+          lower-case-service-id: true  #将服务路由全部变为小写
 
       routes:
         - id: apiFegin                        #自定义  路由的唯一标识
