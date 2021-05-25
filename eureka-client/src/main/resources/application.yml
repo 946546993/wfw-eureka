@@ -21,3 +21,7 @@ spring:
   application:
     #    此处名称最好写项目名称，便于识别服务提供者
     name: eureka-client-01
+
+
+resourceYml:
+  path: my-config.yml , my-config-02.yml
