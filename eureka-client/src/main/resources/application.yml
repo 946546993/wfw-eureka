@@ -23,5 +23,13 @@ spring:
     name: eureka-client-01
 
 
+
 resourceYml:
   path: my-config.yml , my-config-02.yml
+
+
+
+
+
+# 是否开启加密
+isSecret: true

@@ -12,6 +12,19 @@
     </parent>
 
 
+    <modules>
+        <module>eureka-server</module>
+        <module>service-ribbon</module>
+        <module>server-fegin</module>
+        <module>eureka-gateway</module>
+        <module>eureka-client-01</module>
+        <module>eureka-client</module>
+        <module>service-ribbon-hystrix</module>
+
+
+    </modules>
+
+
     <groupId>com.example</groupId>
     <artifactId>mycloud</artifactId>
     <version>0.0.1-SNAPSHOT</version>
