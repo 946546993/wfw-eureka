@@ -1,0 +1,32 @@
+spring:
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/946546993/config-server-demo    #配置文件的git地址
+          search-paths: config                                    #配置文件的目录
+          username: 946546993@qq.com                              #git账号
+          password: HZX19983.5wasd                                #git密码
+
+  application:
+    name: config-server
+
+
+server:
+  port: 8787
+  servlet:
+    context-path: /demo
+
+
+eureka:
+  client:
+    #向注册中心注册自己
+    register-with-eureka: true
+    #检索服务(从注册中心获取服务)
+    fetch-registry: true
+    #如果有多个注册中心,需要配置其他的路径,用逗号隔离
+    serviceUrl:
+      defaultZone: http://localhost:8761/demo/eureka/
+  instance:
+    #将IP注册到eureka中，如果为false默认注册主机名
+    prefer-ip-address: true
