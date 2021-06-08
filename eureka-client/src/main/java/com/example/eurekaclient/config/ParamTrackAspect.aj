@@ -13,8 +13,6 @@ import org.aspectj.lang.annotation.Pointcut;
 import org.aspectj.lang.reflect.MethodSignature;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
-import org.springframework.util.DigestUtils;
-import sun.security.provider.MD5;
 
 import java.lang.reflect.Method;
 import java.lang.reflect.Type;

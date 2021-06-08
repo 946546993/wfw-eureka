@@ -3,7 +3,6 @@ package com.example.eurekaclient.config;
 import com.alibaba.fastjson.JSON;
 import com.example.eurekaclient.Util.IpUtil;
 import com.example.eurekaclient.annotation.TestTrack;
-import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.Signature;
