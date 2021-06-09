@@ -1,0 +1,61 @@
+eureka:
+  client:
+    #向注册中心注册自己
+    register-with-eureka: true
+    #检索服务(从注册中心获取服务)
+    fetch-registry: true
+    #如果有多个注册中心,需要配置其他的路径,用逗号隔离
+    serviceUrl:
+      defaultZone: http://localhost:8761/demo/eureka/
+  instance:
+    #将IP注册到eureka中，如果为false默认注册主机名
+    prefer-ip-address: true
+
+
+spring:
+  profiles:
+    active: prod
+  application:
+    name: config-eureka-client
+  cloud:
+    config:
+      name: config-eureka-client    #配置文件名称，可以不写，默认前缀和项目名匹配
+      label: master
+      discovery:
+        enabled: true
+        service-id: config-server       # 指定配置中心配置中心server-id
+      request-connect-timeout: 30000    #设置链接时间，git可能会有点慢，最好设置时间长一些
+      request-read-timeout: 30000
+
+
+---
+
+spring:
+  profiles: prod
+  application:
+    name: config-eureka-client
+  cloud:
+    config:
+      name: config-eureka-client    #配置文件名称，可以不写，默认前缀和项目名匹配
+      label: master
+      profile: prod
+      discovery:
+        enabled: true
+        service-id: config-server       # 指定配置中心配置中心server-id
+      request-connect-timeout: 30000    #设置链接时间，git可能会有点慢，最好设置时间长一些
+      request-read-timeout: 30000
+
+
+
+---
+spring:
+  profiles: dev
+  cloud:
+    config:
+      profile: dev
+
+
+
+
+
+
