@@ -20,7 +20,7 @@ spring:
   cloud:
     config:
       name: config-eureka-client    #配置文件名称，可以不写，默认前缀和项目名匹配
-      label: master
+      label: main
       discovery:
         enabled: true
         service-id: config-server       # 指定配置中心配置中心server-id
@@ -37,7 +37,7 @@ spring:
   cloud:
     config:
       name: config-eureka-client    #配置文件名称，可以不写，默认前缀和项目名匹配
-      label: master
+      label: main
       profile: prod
       discovery:
         enabled: true

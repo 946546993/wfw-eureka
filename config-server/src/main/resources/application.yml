@@ -1,12 +1,16 @@
 spring:
   cloud:
     config:
+      request-connect-timeout: 30000    #设置链接时间，git可能会有点慢，最好设置时间长一些
+      request-read-timeout: 30000
       server:
         git:
-          uri: https://github.com/946546993/config-server-demo    #配置文件的git地址
+          uri: https://github.com/946546993/spring-cloud-config    #配置文件的git地址
+          default-label: main
           search-paths: config                                    #配置文件的目录
           username: 946546993@qq.com                              #git账号
           password: HZX19983.5wasd                                #git密码
+
 
   application:
     name: config-server
